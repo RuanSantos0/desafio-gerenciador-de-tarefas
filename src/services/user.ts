@@ -52,10 +52,9 @@ const post = (user: USER) => {
           ...user,
           iat: new Date().setHours(new Date().getHours() + 12),
         });
-        console.log("passou 1 ")
         users.map((e, i) => ({ ...e, id: i + 1 }));
-        console.log("passou 1 ")
         localStorage.setItem(`${base_prefix}-user`, JSON.stringify(users));
+        localStorage.setItem(`${base_prefix}-user-loginCheck`, JSON.stringify(new Date().setHours(new Date().getHours() + 12)));
       }
       resolve();
     } catch (error) {
